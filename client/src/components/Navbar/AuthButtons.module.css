@@ -1,0 +1,11 @@
+.authButton {
+  @apply flex items-center space-x-1 text-gray-700 hover:text-orange-500 transition-colors duration-200;
+}
+
+.icon {
+  @apply w-5 h-5;
+}
+
+.authButton:hover .icon {
+  @apply text-orange-500;
+}

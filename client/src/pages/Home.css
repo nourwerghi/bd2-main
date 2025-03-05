@@ -1,0 +1,118 @@
+/* Hero Section Animations */
+.hero-title {
+  opacity: 0;
+  animation: slideUp 1s ease forwards;
+}
+
+.hero-subtitle {
+  opacity: 0;
+  animation: slideUp 1s ease 0.3s forwards;
+}
+
+.shop-button {
+  opacity: 0;
+  animation: slideUp 1s ease 0.6s forwards;
+}
+
+.learn-more-button {
+  opacity: 0;
+  animation: slideUp 1s ease 0.8s forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Gradient Text Effect */
+.gradient-text {
+  background: linear-gradient(45deg, #9333ea, #3b82f6, #9333ea);
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: gradient 3s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Feature Cards Animation */
+.feature-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.feature-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover Effects */
+.feature-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(147, 51, 234, 0.1);
+}
+
+/* Scroll Animation */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Parallax Effect */
+.bg-fixed {
+  background-attachment: fixed;
+}
+
+/* Add smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+}
+
+/* Add intersection observer for feature cards */
+.feature-card {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.feature-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

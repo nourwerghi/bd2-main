@@ -1,0 +1,371 @@
+/* Common Page Layouts */
+.pageContainer {
+  @apply max-w-7xl mx-auto px-4 py-8 mt-16;
+}
+
+.sectionContainer {
+  @apply my-8 p-6 bg-white rounded-lg shadow-sm;
+}
+
+/* Product List Page */
+.productsGrid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-4;
+}
+
+.filtersSidebar {
+  @apply w-64 p-4 bg-white border-r border-gray-200;
+}
+
+/* Product Detail Page */
+.productDetail {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-8 p-8;
+}
+
+.productImages {
+  @apply grid gap-4;
+}
+
+/* Cart Page */
+.cartContainer {
+  @apply grid grid-cols-1 lg:grid-cols-3 gap-8 p-4;
+}
+
+.cartItems {
+  @apply col-span-2 flex flex-col gap-4;
+}
+
+.cartItem {
+  @apply grid grid-cols-[auto_1fr_auto] gap-4 p-4 border border-gray-200 rounded-lg;
+}
+
+.cartSummary {
+  @apply p-6 bg-white rounded-lg shadow-md;
+}
+
+/* Checkout Page */
+.checkoutGrid {
+  @apply grid grid-cols-1 lg:grid-cols-3 gap-8 p-4;
+}
+
+.checkoutForm {
+  @apply col-span-2 flex flex-col gap-6;
+}
+
+/* Profile Page */
+.profileContainer {
+  @apply grid grid-cols-1 md:grid-cols-[250px_1fr] gap-8 p-4;
+}
+
+.profileSidebar {
+  @apply p-4 bg-white rounded-lg shadow-md;
+}
+
+.profileContent {
+  @apply p-6 bg-white rounded-lg shadow-md;
+}
+
+/* Order History */
+.ordersList {
+  @apply flex flex-col gap-4;
+}
+
+.orderItem {
+  @apply p-4 border border-gray-200 rounded-lg;
+}
+
+/* Loading States */
+.skeleton {
+  @apply animate-pulse bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 
+  bg-[length:200%_100%];
+}
+
+/* Modal Styles */
+.modalOverlay {
+  @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50;
+}
+
+.modalContent {
+  @apply bg-white p-8 rounded-lg max-w-lg w-[90%] max-h-[90vh] overflow-y-auto;
+}
+
+/* Navigation */
+.breadcrumbs {
+  @apply flex gap-2 py-4 text-gray-600;
+}
+
+.pagination {
+  @apply flex justify-center gap-2 my-8;
+}
+
+.paginationButton {
+  @apply px-4 py-2 border border-gray-200 rounded-md bg-white hover:bg-gray-50 
+  transition-colors duration-200;
+}
+
+.paginationButtonActive {
+  @apply bg-orange-500 text-white border-orange-500 hover:bg-orange-600;
+}
+
+/* Status Containers */
+.errorContainer {
+  @apply p-4 rounded-lg bg-red-50 text-red-600 my-4;
+}
+
+.successContainer {
+  @apply p-4 rounded-lg bg-green-50 text-green-600 my-4;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .productDetail {
+    @apply grid-cols-1;
+  }
+
+  .cartContainer,
+  .checkoutGrid {
+    @apply grid-cols-1;
+  }
+
+  .profileContainer {
+    @apply grid-cols-1;
+  }
+
+  .filtersSidebar {
+    @apply w-full border-r-0 border-b border-gray-200;
+  }
+}
+/* Home Page */
+.heroSection {
+  @apply bg-gradient-to-r from-orange-50 to-orange-100 py-16;
+}
+
+.heroContent {
+  @apply max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between;
+}
+
+.heroText {
+  @apply md:w-1/2 space-y-6;
+}
+
+.heroTitle {
+  @apply text-4xl md:text-6xl font-bold text-gray-900;
+}
+
+.heroDescription {
+  @apply text-lg text-gray-600;
+}
+
+/* Shop Page */
+.shopGrid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6;
+}
+
+.filterSection {
+  @apply mb-8 flex flex-wrap gap-4 items-center;
+}
+
+.sortSelect {
+  @apply p-2 border rounded-md focus:ring-2 focus:ring-orange-500 focus:border-orange-500;
+}
+
+/* Product Card */
+.productCard {
+  @apply bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300;
+}
+
+.productImage {
+  @apply w-full h-64 object-cover;
+}
+
+.productInfo {
+  @apply p-4 space-y-2;
+}
+
+.productTitle {
+  @apply text-lg font-semibold text-gray-800;
+}
+
+.productPrice {
+  @apply text-orange-500 font-bold;
+}
+
+/* Dashboard Page */
+.dashboard {
+  @apply space-y-6;
+}
+
+.dashboardCard {
+  @apply bg-white p-6 rounded-lg shadow-md;
+}
+
+.dashboardTitle {
+  @apply text-2xl font-bold text-gray-800 mb-4;
+}
+
+/* Admin Page */
+.adminGrid {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+.adminCard {
+  @apply bg-white p-6 rounded-lg shadow-md;
+}
+
+.statsCard {
+  @apply bg-gradient-to-r from-orange-500 to-orange-600 text-white p-6 rounded-lg;
+}
+
+/* Auth Pages (Login/Register) */
+.authContainer {
+  @apply max-w-md mx-auto mt-20 p-8 bg-white rounded-lg shadow-sm
+  transform transition-all duration-300 hover:shadow-md w-[90%] md:w-full;
+}
+
+.authTitle {
+  @apply text-2xl md:text-3xl font-bold text-center text-gray-800 mb-8;
+}
+
+.authForm {
+  @apply space-y-6;
+}
+
+.formGroup {
+  @apply mb-5;
+}
+
+.formLabel {
+  @apply block mb-2 text-sm font-medium text-gray-600;
+}
+
+.formInput {
+  @apply w-full p-3 border border-gray-200 rounded-lg text-gray-800 text-sm
+  focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500
+  transition-all duration-200 hover:border-orange-300;
+}
+
+.submitButton {
+  @apply w-full py-3 px-4 bg-orange-500 text-white text-base font-semibold rounded-lg
+  hover:bg-orange-600 transition-colors duration-300 cursor-pointer
+  focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2;
+}
+
+.authDivider {
+  @apply flex items-center my-6;
+}
+
+.dividerLine {
+  @apply flex-1 h-px bg-gray-200;
+}
+
+.dividerText {
+  @apply px-4 text-sm text-gray-500;
+}
+
+.socialLogin {
+  @apply space-y-4;
+}
+
+.socialButton {
+  @apply w-full flex items-center justify-center gap-3 py-3 px-4 
+  border border-gray-200 rounded-lg text-gray-700 font-medium
+  hover:bg-gray-50 transition-colors duration-200;
+}
+
+.forgotPassword {
+  @apply text-sm text-orange-500 hover:text-orange-600 text-center block mt-4;
+}
+
+.authSwitch {
+  @apply text-sm text-gray-600 text-center mt-6;
+}
+
+.authSwitchLink {
+  @apply text-orange-500 hover:text-orange-600 font-medium ml-1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .authContainer {
+    @apply mt-10 p-6;
+  }
+  
+  .authTitle {
+    @apply text-2xl mb-6;
+  }
+  
+  .formGroup {
+    @apply mb-4;
+  }
+}
+.formInput {
+  @apply w-full p-3 border border-gray-300 rounded-lg
+  focus:ring-2 focus:ring-orange-500 focus:border-orange-500
+  transition-all duration-200 text-gray-800 placeholder-gray-400
+  hover:border-orange-300;
+}
+.submitButton {
+  @apply w-full bg-orange-500 text-white py-3 px-4 rounded-lg
+  hover:bg-orange-600 transform hover:-translate-y-0.5
+  transition-all duration-200 font-semibold text-base shadow-sm
+  focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2;
+}
+
+/* Error Pages */
+.errorContainer {
+  @apply flex flex-col items-center justify-center min-h-screen text-center px-4;
+}
+
+.errorCode {
+  @apply text-6xl font-bold text-orange-500 mb-4;
+}
+
+.errorMessage {
+  @apply text-xl text-gray-600 mb-8;
+}
+
+/* Loading States */
+.loadingSpinner {
+  @apply animate-spin h-8 w-8 text-orange-500;
+}
+
+.loadingContainer {
+  @apply flex justify-center items-center min-h-screen;
+}
+
+/* Responsive Utilities */
+.mobileOnly {
+  @apply block md:hidden;
+}
+
+.desktopOnly {
+  @apply hidden md:block;
+}
+
+/* Common Components */
+.button {
+  @apply px-4 py-2 rounded-md font-medium transition-colors duration-200;
+}
+
+.primaryButton {
+  @apply button bg-orange-500 text-white hover:bg-orange-600;
+}
+
+.secondaryButton {
+  @apply button border border-orange-500 text-orange-500 hover:bg-orange-50;
+}
+
+.badge {
+  @apply px-2 py-1 text-sm rounded-full;
+}
+
+.successBadge {
+  @apply badge bg-green-100 text-green-800;
+}
+
+.warningBadge {
+  @apply badge bg-yellow-100 text-yellow-800;
+}
+
+.errorBadge {
+  @apply badge bg-red-100 text-red-800;
+}

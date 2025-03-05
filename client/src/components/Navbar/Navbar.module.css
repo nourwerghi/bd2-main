@@ -1,0 +1,47 @@
+.navbar {
+  @apply bg-white shadow-lg fixed w-full top-0 z-50;
+}
+
+.container {
+  @apply max-w-7xl mx-auto px-4;
+}
+
+.wrapper {
+  @apply flex justify-between h-16;
+}
+
+.logoContainer {
+  @apply flex items-center;
+}
+
+.logo {
+  @apply flex items-center space-x-2 hover:opacity-90 transition-opacity duration-200;
+}
+
+.logoIcon {
+  @apply h-8 w-8 text-orange-500;
+}
+
+.logoText {
+  @apply text-2xl font-bold text-gray-800;
+}
+
+.navLinks {
+  @apply flex items-center space-x-8;
+}
+
+.dashboardLink {
+  @apply text-gray-700 hover:text-orange-500 transition-colors duration-200;
+}
+
+.logoutButton {
+  @apply flex items-center space-x-1 text-gray-700 hover:text-orange-500 transition-colors duration-200;
+}
+
+.logoutIcon {
+  @apply w-5 h-5;
+}
+
+.logoutButton:hover .logoutIcon {
+  @apply text-orange-500;
+}
