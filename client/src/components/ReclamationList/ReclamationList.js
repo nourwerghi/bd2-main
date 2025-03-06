@@ -15,7 +15,7 @@ const ReclamationList = () => {
       const response = await api.get('/reclamations/user');
       setReclamations(response.data);
     } catch (err) {
-      setError(err.response?.data?.message || 'Erreur lors de la récupération des réclamations');
+      setError(err.response?.data?.message || err.message || 'Erreur lors de la récupération des réclamations');
     } finally {
       setLoading(false);
     }

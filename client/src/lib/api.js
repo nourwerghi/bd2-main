@@ -29,6 +29,75 @@ if (token) {
 const api = {
   setAuthToken,
   
+  // Add base HTTP methods
+  async get(url, config = {}) {
+    try {
+      const token = getAuthToken();
+      const response = await axios.get(`${BASE_URL}${url}`, {
+        ...config,
+        headers: {
+          ...config.headers,
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      return response.data;
+    } catch (error) {
+      console.error(`GET ${url} error:`, error.response?.data || error);
+      throw error.response?.data || { message: 'An error occurred while fetching data' };
+    }
+  },
+
+  async post(url, data, config = {}) {
+    try {
+      const token = getAuthToken();
+      const response = await axios.post(`${BASE_URL}${url}`, data, {
+        ...config,
+        headers: {
+          ...config.headers,
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      return response.data;
+    } catch (error) {
+      console.error(`POST ${url} error:`, error.response?.data || error);
+      throw error.response?.data || { message: 'An error occurred while sending data' };
+    }
+  },
+
+  async put(url, data, config = {}) {
+    try {
+      const token = getAuthToken();
+      const response = await axios.put(`${BASE_URL}${url}`, data, {
+        ...config,
+        headers: {
+          ...config.headers,
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      return response.data;
+    } catch (error) {
+      console.error(`PUT ${url} error:`, error.response?.data || error);
+      throw error.response?.data || { message: 'An error occurred while updating data' };
+    }
+  },
+
+  async delete(url, config = {}) {
+    try {
+      const token = getAuthToken();
+      const response = await axios.delete(`${BASE_URL}${url}`, {
+        ...config,
+        headers: {
+          ...config.headers,
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      return response.data;
+    } catch (error) {
+      console.error(`DELETE ${url} error:`, error.response?.data || error);
+      throw error.response?.data || { message: 'An error occurred while deleting data' };
+    }
+  },
+  
   auth: {
     login: async (credentials) => {
       try {

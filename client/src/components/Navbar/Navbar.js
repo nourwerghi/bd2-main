@@ -60,7 +60,7 @@ const Navbar = ({ user, setUser }) => {
 
   return (
     <>
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${
+    <nav className={`w-full transition-all duration-300 ${
       isHomePage ? 'bg-transparent' : 'bg-white shadow-md'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -80,52 +80,77 @@ const Navbar = ({ user, setUser }) => {
           <div className="hidden md:flex md:items-center md:space-x-4">
             {user ? (
               <>
-                <Link
-                  to="/"
-                  className={`px-3 py-2 rounded-md text-sm font-medium ${
-                    isHomePage
-                      ? 'text-white hover:bg-white/10'
-                      : 'text-gray-900 hover:bg-gray-100'
-                  }`}
-                >
-                  Home
-                </Link>
-                <Link
-                  to="/user/shop"
-                  className={`px-3 py-2 rounded-md text-sm font-medium ${
-                    isHomePage
-                      ? 'text-white hover:bg-white/10'
-                      : 'text-gray-900 hover:bg-gray-100'
-                  }`}
-                >
-                  Shop
-                </Link>
-                <button
-                  onClick={() => setShowCart(true)}
-                  className={`relative px-3 py-2 rounded-md text-sm font-medium ${
-                    isHomePage
-                      ? 'text-white hover:bg-white/10'
-                      : 'text-gray-900 hover:bg-gray-100'
-                  }`}
-                >
-                  <ShoppingCart className="w-6 h-6" />
-                  {items.length > 0 && (
-                    <span className="absolute -top-1 -right-1 bg-blue-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                      {items.length}
-                    </span>
-                  )}
-                </button>
-                {user.isAdmin && (
-                  <Link
-                    to="/admin"
-                    className={`px-3 py-2 rounded-md text-sm font-medium ${
-                      isHomePage
-                        ? 'text-white hover:bg-white/10'
-                        : 'text-gray-900 hover:bg-gray-100'
-                    }`}
-                  >
-                    Admin
-                  </Link>
+                {user.isAdmin ? (
+                  <>
+                    <Link
+                      to="/admin"
+                      className={`px-3 py-2 rounded-md text-sm font-medium ${
+                        isHomePage
+                          ? 'text-white hover:bg-white/10'
+                          : 'text-gray-900 hover:bg-gray-100'
+                      }`}
+                    >
+                      Admin Dashboard
+                    </Link>
+                    <Link
+                      to="/admin/profile"
+                      className={`px-3 py-2 rounded-md text-sm font-medium ${
+                        isHomePage
+                          ? 'text-white hover:bg-white/10'
+                          : 'text-gray-900 hover:bg-gray-100'
+                      }`}
+                    >
+                      Profile
+                    </Link>
+                    <button
+                      onClick={handleLogout}
+                      className={`px-3 py-2 rounded-md text-sm font-medium ${
+                        isHomePage
+                          ? 'text-white hover:bg-white/10'
+                          : 'text-gray-900 hover:bg-gray-100'
+                      }`}
+                    >
+                      Sign Out
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <Link
+                      to="/"
+                      className={`px-3 py-2 rounded-md text-sm font-medium ${
+                        isHomePage
+                          ? 'text-white hover:bg-white/10'
+                          : 'text-gray-900 hover:bg-gray-100'
+                      }`}
+                    >
+                      Home
+                    </Link>
+                    <Link
+                      to="/user/shop"
+                      className={`px-3 py-2 rounded-md text-sm font-medium ${
+                        isHomePage
+                          ? 'text-white hover:bg-white/10'
+                          : 'text-gray-900 hover:bg-gray-100'
+                      }`}
+                    >
+                      Shop
+                    </Link>
+                    <button
+                      onClick={() => setShowCart(true)}
+                      className={`relative px-3 py-2 rounded-md text-sm font-medium ${
+                        isHomePage
+                          ? 'text-white hover:bg-white/10'
+                          : 'text-gray-900 hover:bg-gray-100'
+                      }`}
+                    >
+                      <ShoppingCart className="w-6 h-6" />
+                      {items.length > 0 && (
+                        <span className="absolute -top-1 -right-1 bg-blue-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                          {items.length}
+                        </span>
+                      )}
+                    </button>
+                  </>
                 )}
               </>
             ) : (
@@ -267,6 +292,36 @@ const Navbar = ({ user, setUser }) => {
 };
 
 export default Navbar;
+{/* Add Home link to mobile menu */}
+<>
+  <Link
+    to="/"
+    className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-100"
+  >
+    Home
+  </Link>
+  <Link
+    to="/user/shop"
+    className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-100"
+  >
+    Shop
+  </Link>
+</>
+{/* Add Home link to mobile menu */}
+<>
+  <Link
+    to="/"
+    className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-100"
+  >
+    Home
+  </Link>
+  <Link
+    to="/user/shop"
+    className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-100"
+  >
+    Shop
+  </Link>
+</>
 {/* Add Home link to mobile menu */}
 <>
   <Link

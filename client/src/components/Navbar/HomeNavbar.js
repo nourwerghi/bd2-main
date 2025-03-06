@@ -18,6 +18,22 @@ const HomeNavbar = ({ user, setUser }) => {
   const [showPayment, setShowPayment] = useState(false);
   const { items, total, clearCart } = useCartStore();
 
+  // Determine current page type
+  const isAdminPage = location.pathname.startsWith('/admin');
+  const isUserPage = location.pathname.startsWith('/user');
+  const isAuthPage = location.pathname === '/login' || location.pathname === '/register';
+  const isHomePage = location.pathname === '/';
+
+  // Custom styles based on page type
+  const navbarStyle = `fixed w-full transition-all duration-300 z-50 ${
+    isHomePage ? 'bg-transparent' : 'bg-gradient-to-r from-purple-600 to-blue-500'
+  } ${scrollPosition > 50 ? 'shadow-lg bg-opacity-95 backdrop-blur-md' : ''} ${
+    isVisible ? 'translate-y-0' : '-translate-y-full'
+  }`;
+
+  const linkStyle = `relative text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:text-purple-200 group`;
+  const activeLinkStyle = `${linkStyle} text-purple-200`;
+
   useEffect(() => {
     let lastScroll = 0;
     const handleScroll = () => {
@@ -41,7 +57,7 @@ const HomeNavbar = ({ user, setUser }) => {
     navigate('/');
   };
 
-  const navbarClass = `fixed w-full transition-all duration-300 z-50 ${scrollPosition > 50 ? 'bg-opacity-95 backdrop-blur-md bg-gradient-to-r from-purple-600 to-blue-500 shadow-lg' : 'bg-transparent'} ${isVisible ? 'translate-y-0' : '-translate-y-full'}`;
+  const navbarClass = `w-full z-50 transition-all duration-300 ${isHomePage ? 'bg-transparent' : 'bg-gradient-to-r from-purple-600 to-blue-500'} ${scrollPosition > 50 ? 'shadow-lg bg-opacity-95 backdrop-blur-md' : ''}`;
 
   const linkClass = (path) =>
     `relative text-white px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 hover:text-purple-200 group ${activeLink === path ? 'text-purple-200' : ''}`;
@@ -89,7 +105,7 @@ const HomeNavbar = ({ user, setUser }) => {
 
   return (
     <>
-      <nav className={navbarClass}>
+      <nav className={navbarStyle}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Brand */}
@@ -178,6 +194,12 @@ const HomeNavbar = ({ user, setUser }) => {
                         >
                           Dashboard
                         </Link>
+                        <Link
+                          to="/user/reclamation"
+                          className="block px-4 py-2 text-sm text-white hover:bg-white/10 transition-colors duration-200"
+                        >
+                          Reclamations
+                        </Link>
                         <button
                           onClick={handleLogout}
                           className="block w-full text-left px-4 py-2 text-sm text-white hover:bg-white/10 transition-colors duration-200"
@@ -211,6 +233,8 @@ const HomeNavbar = ({ user, setUser }) => {
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="relative inline-flex items-center justify-center p-2 rounded-md text-white group"
+              aria-expanded={isMenuOpen}
+              aria-label="Toggle navigation menu"
             >
               <div className="absolute inset-0 bg-white/5 rounded-md transform group-hover:scale-105 transition-transform duration-300"></div>
               <div className="relative flex flex-col space-y-1.5 w-6">
